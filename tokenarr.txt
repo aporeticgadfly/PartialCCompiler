@@ -1,0 +1,16 @@
+/* char tokens[90][20] = {
+    "else ", "if ", "int ", "print ", "read ", "return ", "while ",
+    "semicolon ", "comma ", "opencurly ", "closecurly ", "opensquare ",
+    "closesquare ", "openbracket ", "closebracket ", "tildecompl ", "period ",
+    "hash ", "divide ", "multiplyindirect ", "modulo ", "plus ", "minus ", "assign ", "eq ",
+    "ne ", "lt ", "le ", "gt ", "ge ", "eof ", "auto ", "double ", "struct ",
+    "break ", "long ", "switch ", "case ", "enum ", "register ", "typedef ", "char ",
+    "extern ", "union ", "const ", "float ", "short ", "unsigned ", "continue ",
+    "for ", "signed ", "void ", "default ", "goto ", "sizeof ", "volatile ",
+    "do ", "static ", "type ", "alignof ", "ternary1 ", "colon ", "increment ", "decrement ",
+    "land ", "lor ", "lnot ", "bor ", "xor ", "deref ", "bandaddrof ",
+    "leftshift ", "rightshift ", "leftshifta ", "rightshifta ", "plusa ", "minusa ",
+    "multiplya ", "dividea ", "moduloa ", "andeq ", "oreq ", "xoreq ",
+    "intliteral ", "stringliteral ", "charliteral ", "fpliteral ", "neg ", "identifier ", "errorsym"
+};
+*/
