@@ -57,7 +57,7 @@ int fpflag = 0;
 
 int incomment = 0;
 
-lextokens lex(FILE* fp) {
+extern lextokens lex(FILE* fp) {
     while (isspace(ch)) ch = getc(fp);
 
     switch (ch) {
@@ -499,25 +499,21 @@ lextokens lex(FILE* fp) {
         }
         //fp literal
         else {
-            int foverflow = 0;
             fpval = atof(numstring);
             
             if (fpval > LDBL_MAX) {
-                foverflow = 1;
-            }
-            if (foverflow) {
                 lextoken = errorsym;
                 fprintf(stderr, "floating-point constant overflow\n");
+                fpflag = 0;
                 return lextoken;
             }
             if (negflag == 1) {
                 negflag = 0;
                 fpval = fpval * -1;
             }
-            else {
-                lextoken = fpliteralsym;
-                return lextoken;
-            }
+            fpflag = 0;
+            lextoken = fpliteralsym;
+            return lextoken;
         }
 
     }
@@ -618,29 +614,4 @@ lextokens lex(FILE* fp) {
         lextoken = errorsym;
         return lextoken;
     }
-}
-
-int main(int argc, char** argv) {
-
-    FILE* fp = fopen(argv[1], "r+");
-    if (fp == NULL) perror("Error opening file");
-    else
-    {
-        ch = getc(fp);
-        while (ch != EOF && result != 89) {
-            result = lex(fp);
-            //printf("%c\n", ch);
-            //printf("%d\n", result);
-            printf("%s\n", tokens[result]);
-            //printf("%s\n", tokens);
-            //printf("%s", identifier);
-            //printf("%c", charval);
-            //printf("%d", ival);
-            //printf("%f", fpval);
-            //printf("%s", string);
-
-        }
-    }
-    fclose(fp);
-    return 0;
 }
